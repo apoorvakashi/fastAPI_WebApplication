@@ -8,8 +8,13 @@ from .. import models, schemas, utils, oauth2
 
 router = APIRouter(tags=["Authentication"])
 
-@router.get('/login', response_model=schemas.Token)
+@router.post('/login', response_model=schemas.Token)
 def login(user: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(database.get_db)):
+    if not user.username or not user.password:
+        raise HTTPException(
+        status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+        detail="Username and password are required"
+    )
     login_user = db.query(models.User).filter(models.User.email == user.username).first()
 
     if not login_user:
