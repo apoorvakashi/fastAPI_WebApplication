@@ -5,15 +5,15 @@ jobs:
   job1:
     environment:
       name: testing
-    env: |
-      DATABASE_HOSTNAME=${{secrets.DATABASE_HOSTNAME}}
-      DATABASE_PORT=${{secrets.DATABASE_PORT}}
-      DATABASE_NAME=${{secrets.DATABASE_NAME}}
-      DATABASE_USERNAME=${{secrets.DATABASE_USERNAME}}
-      DATABASE_PASSWORD=${{secrets.DATABASE_PASSWORD}}
-      SECRET_KEY=${{secrets.SECRET_KEY}}
-      ACCESS_TOKEN_EXPIRE_MINUTES=${{secrets.ACCESS_TOKEN_EXPIRE_MINUTES}}
-      ALGORITHM=${{secrets.ALGORITHM}}
+    env:
+      DATABASE_HOSTNAME: ${{secrets.DATABASE_HOSTNAME}}
+      DATABASE_PORT: ${{secrets.DATABASE_PORT}}
+      DATABASE_NAME: ${{secrets.DATABASE_NAME}}
+      DATABASE_USERNAME: ${{secrets.DATABASE_USERNAME}}
+      DATABASE_PASSWORD: ${{secrets.DATABASE_PASSWORD}}
+      SECRET_KEY: ${{secrets.SECRET_KEY}}
+      ACCESS_TOKEN_EXPIRE_MINUTES: ${{secrets.ACCESS_TOKEN_EXPIRE_MINUTES}}
+      ALGORITHM: ${{secrets.ALGORITHM}}
     runs-on: ubuntu-latest
     steps:
       - name: Pulling git repo
