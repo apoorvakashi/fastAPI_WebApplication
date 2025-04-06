@@ -69,4 +69,4 @@ jobs:
     needs: [build]
     steps:
       - name: deploying stuff
-      - run: echo "Deploying..."
+        run: echo "Deploying..."
