@@ -84,5 +84,5 @@ jobs:
           ssh -o StrictHostKeyChecking=no -i private_key ${PROD_USERNAME}@${PROD_HOST} << 'EOF'
             cd app/source
             git pull origin main
-            sudo systemctl restart api
+            sudo systemctl restart app
           EOF
